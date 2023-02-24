@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,8 @@ Route::get('/', function () {
     return view('books.index');
 });
 
-Route::resource("/book", BookController::class);
+Route::resource("/books", BookController::class);
 
-Route::resource("/user", UserController::class);
+Route::resource("/users", UserController::class);
+
+Route::resource("/loans", LoanController::class);
