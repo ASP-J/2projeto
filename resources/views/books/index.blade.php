@@ -1,4 +1,4 @@
-@extends('books.layout')
+@extends('layout')
 @section('content')
     <div class="container">
         <div class="row" style="margin:20px;">
@@ -18,10 +18,10 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Tittle</th>
-                                    <th>Author</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
+                                    <th>Título</th>
+                                    <th>Autor</th>
+                                    <th>Descição</th>
+                                    <th>Quantidade</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -31,8 +31,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->tittle }}</td>
                                         <td>{{ $item->author }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->date }}</td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>{{ $item->quantity }}</td>
 
                                         <td>
                                             <a href="{{ url('/book/' . $item->id) }}" title="View Book">

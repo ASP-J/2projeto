@@ -17,7 +17,7 @@ class BookTableSeeder extends Seeder
     public function run()
     {
         Book::create([
-            'title'      => 'harry potter',
+            'tittle'      => 'harry potter',
             'author'     => 'jk',
             'description'  => 'ASKDKADKKAD',
             'quantity' => 5,
