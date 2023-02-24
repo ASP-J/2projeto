@@ -1,4 +1,4 @@
-@extends('books.layout')
+@extends('layout')
 @section('content')
     <div class="container">
         <div class="row" style="margin:20px;">
@@ -8,7 +8,7 @@
                         <h2>SEXTA ETAPA: Segundo projeto de avaliação</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/book/create') }}" class="btn btn-success btn-sm" title="Add New Book">
+                        <a href="{{ url('/user/create') }}" class="btn btn-success btn-sm" title="Add New user">
                             Add New
                         </a>
                         <br/>
@@ -18,39 +18,39 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Tittle</th>
-                                    <th>Author</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Administrador</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($books as $item)
+                                @foreach($users as $item)
 
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->tittle }}</td>
-                                        <td>{{ $item->author }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->date }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->password }}</td>
+                                        <td>{{ $item->is_admin }}</td>
 
                                         <td>
-                                            <a href="{{ url('/book/' . $item->id) }}" title="View Book">
+                                            <a href="{{ url('/user/' . $item->id) }}" title="View user">
                                                 <button class="btn btn-info btn-sm"><i class="fa fa-eye"
                                                                                        aria-hidden="true"></i> View
                                                 </button>
                                             </a>
-                                            <a href="{{ url('/book/' . $item->id . '/edit') }}" title="Edit Bookt">
+                                            <a href="{{ url('/user/' . $item->id . '/edit') }}" title="Edit usert">
                                                 <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                                                           aria-hidden="true"></i> Edit
                                                 </button>
                                             </a>
 
-                                            <form method="POST" action="{{ url('/book' . '/' . $item->id) }}"
+                                            <form method="POST" action="{{ url('/user' . '/' . $item->id) }}"
                                                   accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Book"
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete user"
                                                         onclick="return confirm(" Confirm delete?
                                                 ")"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
