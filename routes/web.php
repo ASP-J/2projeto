@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('books.index');
 });
 
-Route::resource("/books", BookController::class);
+Route::resource("/book", BookController::class);
 
-Route::resource("/users", UserController::class);
+Route::resource("/user", UserController::class);
 
-Route::resource("/loans", LoanController::class);
+Route::resource("/loan", LoanController::class);
