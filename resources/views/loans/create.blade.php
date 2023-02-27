@@ -4,8 +4,8 @@
     <div class="card" style="margin:20px;">
         <div class="card-header">Emprestar</div>
         <div class="card-body">
-
-            <form class="form-control" action="{{ route('loans.store') }}" method="post">
+            
+            <form class="form-control" action="{{ route('loan.store') }}" method="post">
                 {!! csrf_field() !!}
                 <div class="form-group mb-3">
                     <label for="client">Cliente</label>

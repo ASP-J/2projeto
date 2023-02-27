@@ -9,7 +9,7 @@
                         </h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/loans/create') }}" class="btn btn-success btn-sm" title="Add New loan">
+                        <a href="{{ url('/loan/create') }}" class="btn btn-success btn-sm" title="Add New loan">
                             Add New
                         </a>
                         <br/>
@@ -24,7 +24,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($loans as $loan)
+                                @foreach($loans as $item)
 
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>

@@ -5,20 +5,26 @@
        <div class="card-header">Edit Book</div>
        <div class="card-body">
            books
-           <form action="{{ url('book/' .$books->id) }}" method="post">
-               {!! csrf_field() !!}
-               @method("PATCH")
-               <input type="hidden" name="id" id="id" value="{{$books->id}}" id="id"/>
-               <label>Título</label></br>
-               <input type="text" name="tittle" id="tittle" class="form-control"></br>
-               <label>Autor</label></br>
-               <input type="text" name="author" id="author" class="form-control"></br>
-               <label>Descição</label></br>
-               <input type="text" name="description" id="description" class="form-control"></br>
-               <label>Quantidade</label></br>
-               <input type="number" name="quantity" id="quantity" class="form-control"></br>
-               <input type="submit" value="Save" class="btn btn-success"></br>
-           </form>
+           <form class="form-control" action="{{ route('loan.edit') }}" method="post">
+            {!! csrf_field() !!}
+            <div class="form-group mb-3">
+                <label for="client">Cliente</label>
+                <select name="user_id" id="client" class="form-select" aria-label="Selecione um usuario">
+                    @foreach($users as $user)
+                    <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
+                  </select>
+            </div>
+            <div class="form-group mb-3">
+                <label for="book">Livros</label>
+                <select name="book_id" id="book" class="form-select" aria-label="Selecione um livro">
+                    @foreach($books as $book)
+                    <option value="{{$book->id}}">{{$book->tittle}}</option>
+                    @endforeach
+                  </select>
+            </div>
+            <button type="submit" class="btn btn-success"> Salvar </button>
+        </form>
 
        </div>
    </div>

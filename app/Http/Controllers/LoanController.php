@@ -19,6 +19,7 @@ class LoanController extends Controller
     {
         $books = Book::all();
         $users = User::all();
+
         return view('loans.create', compact('books', 'users'));
     }
     
@@ -26,6 +27,24 @@ class LoanController extends Controller
     {
         $data = $request->all();
         Loan::create($data);
-        return redirect()->to('/loans');
+        return redirect()->to('/loan');
     }
+    public function show($id)
+    {
+        $loan = Loan::find($id);
+        return view('loans.show')->with('loans', $loan);
+    }
+    public function edit(Request $request, $book_id, $user_id)
+    {
+        $loan = Loan::find($book_id, $user_id);
+        $data = $request->all();
+        $loan->update($data);
+        return redirect('loan');
+    }
+    public function destroy($id)
+    {
+        Loan::destroy($id);
+        return redirect()->to('/loan');
+    }
+
 }
