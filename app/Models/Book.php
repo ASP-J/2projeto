@@ -13,7 +13,7 @@ class Book extends Model
     protected $primaryKey ='id';
     protected $fillable =['tittle','author','description','quantity'];
 
-    public function leons()
+    public function loans()
     {
         return $this->belongsToMany(Leon::class, 'id', 'book_id');
     }

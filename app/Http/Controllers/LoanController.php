@@ -34,9 +34,15 @@ class LoanController extends Controller
         $loan = Loan::find($id);
         return view('loans.show')->with('loans', $loan);
     }
-    public function edit(Request $request, $book_id, $user_id)
+    public function edit(Loan $loan)
     {
-        $loan = Loan::find($book_id, $user_id);
+        $books = Book::all();
+        $users = User::all();
+        return view('loans.edit', compact('loan','users','books'));
+    }
+    
+    public function update(Request $request, Loan $loan)
+    {
         $data = $request->all();
         $loan->update($data);
         return redirect('loan');

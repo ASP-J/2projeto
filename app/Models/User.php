@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function leons()
+    public function loans()
     {
         return $this->belongsToMany(Leon::class, 'id', 'user_id');
     }

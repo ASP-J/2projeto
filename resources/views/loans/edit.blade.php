@@ -4,9 +4,9 @@
    <div class="card" style="margin:20px;">
        <div class="card-header">Edit Book</div>
        <div class="card-body">
-           books
-           <form class="form-control" action="{{ route('loan.edit') }}" method="post">
-            {!! csrf_field() !!}
+           <form class="form-control" action="{{ route('loan.update', $loan->id) }}" method="post">
+           @csrf
+           @method('PUT')
             <div class="form-group mb-3">
                 <label for="client">Cliente</label>
                 <select name="user_id" id="client" class="form-select" aria-label="Selecione um usuario">
