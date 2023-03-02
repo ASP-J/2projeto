@@ -9,7 +9,7 @@
                         </h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/loan/create') }}" class="btn btn-success btn-sm" title="Add New loan">
+                        <a href="{{ route('loan.create') }}" class="btn btn-success btn-sm" title="Add New loan">
                             Add New
                         </a>
                         <br/>
@@ -28,8 +28,8 @@
 
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->book_id }}</td>
-                                        <td>{{ $item->user_id }}</td>
+                                        <td>{{ $item->book->tittle }}</td>
+                                        <td>{{ $item->user->name }}</td>
 
                                         <td>
                                             <a href="{{ url('/loan/' . $item->id) }}" title="View Loan">

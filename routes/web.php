@@ -16,7 +16,7 @@ use App\Http\Controllers\LoanController;
 */
 
 Route::get('/', function () {
-    return view('books.index');
+    return view('welcome');
 });
 
 Route::resource("/book", BookController::class);
