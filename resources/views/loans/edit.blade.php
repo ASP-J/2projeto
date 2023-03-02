@@ -4,7 +4,7 @@
    <div class="card" style="margin:20px;">
        <div class="card-header">Edit Book</div>
        <div class="card-body">
-           <form class="form-control" action="{{ route('loan.update', $loan->id) }}" method="post">
+           <form class="form-control" action="{{ route('loans.update', $loan->id) }}" method="post">
            @csrf
            @method('PUT')
             <div class="form-group mb-3">

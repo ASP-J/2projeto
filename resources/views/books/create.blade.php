@@ -5,7 +5,7 @@
         <div class="card-header">Create New book</div>
         <div class="card-body">
 
-            <form action="{{ url('book') }}" method="post">
+            <form action="{{ url('books') }}" method="post">
                 {!! csrf_field() !!}
                 <label>Título</label></br>
                 <input type="text" name="tittle" id="tittle" class="form-control"></br>

@@ -8,7 +8,7 @@
                         <h2>SEXTA ETAPA: Segundo projeto de avaliação</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/user/create') }}" class="btn btn-success btn-sm" title="Add New user">
+                        <a href="{{ url('/users/create') }}" class="btn btn-success btn-sm" title="Add New user">
                             Add New
                         </a>
                         <br/>
@@ -35,18 +35,18 @@
                                         <td>{{ $item->is_admin }}</td>
 
                                         <td>
-                                            <a href="{{ url('/user/' . $item->id) }}" title="View user">
+                                            <a href="{{ url('/users/' . $item->id) }}" title="View user">
                                                 <button class="btn btn-info btn-sm"><i class="fa fa-eye"
                                                                                        aria-hidden="true"></i> View
                                                 </button>
                                             </a>
-                                            <a href="{{ url('/user/' . $item->id . '/edit') }}" title="Edit usert">
+                                            <a href="{{ url('/users/' . $item->id . '/edit') }}" title="Edit usert">
                                                 <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                                                           aria-hidden="true"></i> Edit
                                                 </button>
                                             </a>
 
-                                            <form method="POST" action="{{ url('/user' . '/' . $item->id) }}"
+                                            <form method="POST" action="{{ url('/users' . '/' . $item->id) }}"
                                                   accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}

@@ -9,7 +9,7 @@
                         </h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('loan.create') }}" class="btn btn-success btn-sm" title="Add New loan">
+                        <a href="{{ route('loans.create') }}" class="btn btn-success btn-sm" title="Add New loan">
                             Add New
                         </a>
                         <br/>
@@ -32,18 +32,18 @@
                                         <td>{{ $item->user->name }}</td>
 
                                         <td>
-                                            <a href="{{ url('/loan/' . $item->id) }}" title="View Loan">
+                                            <a href="{{ url('/loans/' . $item->id) }}" title="View Loan">
                                                 <button class="btn btn-info btn-sm"><i class="fa fa-eye"
                                                                                        aria-hidden="true"></i> View
                                                 </button>
                                             </a>
-                                            <a href="{{ url('/loan/' . $item->id . '/edit') }}" title="Edit Loan">
+                                            <a href="{{ url('/loans/' . $item->id . '/edit') }}" title="Edit Loan">
                                                 <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                                                           aria-hidden="true"></i> Edit
                                                 </button>
                                             </a>
 
-                                            <form method="POST" action="{{ url('/loan' . '/' . $item->id) }}"
+                                            <form method="POST" action="{{ url('/loans' . '/' . $item->id) }}"
                                                   accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}

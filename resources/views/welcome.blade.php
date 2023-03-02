@@ -8,13 +8,13 @@
                         <h2>SEXTA ETAPA: Segundo projeto de avaliação</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{route('loan.index') }}" class="btn btn-success btn-sm" title="Add New Book">
+                        <a href="{{route('loans.index') }}" class="btn btn-success btn-sm" title="Add New Book">
                             Emprestimos
                         </a>
-                        <a href="{{route('book.index') }}" class="btn btn-success btn-sm" title="Add New Book">
+                        <a href="{{route('books.index') }}" class="btn btn-success btn-sm" title="Add New Book">
                             Livros
                         </a>
-                        <a href="{{route('user.index') }}" class="btn btn-success btn-sm" title="Add New Book">
+                        <a href="{{route('users.index') }}" class="btn btn-success btn-sm" title="Add New Book">
                             Usuario
                         </a>
                           

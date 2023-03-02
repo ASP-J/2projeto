@@ -39,7 +39,7 @@ class UserController extends Controller
     {
         $input = $request->all();
         user::create($input);
-        return redirect('user')->with('flash_message', 'user Addedd!');
+        return redirect('users')->with('flash_message', 'user Addedd!');
     }
 
     /**
@@ -79,7 +79,7 @@ class UserController extends Controller
         $user = User::find($id);
         $input = $request->all();
         $user->update($input);
-        return redirect('user')->with('flash_message', 'user Updated!');
+        return redirect('users')->with('flash_message', 'user Updated!');
     }
 
     /**
@@ -91,6 +91,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         user::destroy($id);
-        return redirect('user')->with('flash_message', 'user deleted!');
+        return redirect('users')->with('flash_message', 'user deleted!');
     }
 }

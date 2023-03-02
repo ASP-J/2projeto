@@ -39,7 +39,7 @@ class BookController extends Controller
     {
         $input = $request->all();
         Book::create($input);
-        return redirect('book')->with('flash_message', 'Book Addedd!');
+        return redirect('books')->with('flash_message', 'Book Addedd!');
     }
 
     /**
@@ -78,7 +78,7 @@ class BookController extends Controller
         $book = Book::find($id);
         $input = $request->all();
         $book->update($input);
-        return redirect('book')->with('flash_message', 'book Updated!');
+        return redirect('books')->with('flash_message', 'book Updated!');
     }
 
     /**
@@ -90,6 +90,6 @@ class BookController extends Controller
     public function destroy($id)
     {
         Book::destroy($id);
-        return redirect('book')->with('flash_message', 'Book deleted!');
+        return redirect('books')->with('flash_message', 'Book deleted!');
     }
 }

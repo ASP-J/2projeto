@@ -27,7 +27,7 @@ class LoanController extends Controller
     {
         $data = $request->all();
         Loan::create($data);
-        return redirect()->to('/loan');
+        return redirect()->to('/loans');
     }
     public function show($id)
     {
@@ -45,12 +45,12 @@ class LoanController extends Controller
     {
         $data = $request->all();
         $loan->update($data);
-        return redirect('loan');
+        return redirect('loans');
     }
     public function destroy($id)
     {
         Loan::destroy($id);
-        return redirect()->to('/loan');
+        return redirect()->to('/loans');
     }
 
 }
