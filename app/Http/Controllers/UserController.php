@@ -3,94 +3,45 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use App\Models\User;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $users = User::all();
-        return view ('users.index')->with('users', $users);
+        return UserResource::collection($users);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function store(UserRequest $request)
     {
-        return view('users.create');
+        $data = $request->validated();
+        $user = User::create($data);
+        return UserResource::make($user);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $input = $request->all();
-        user::create($input);
-        return redirect('users')->with('flash_message', 'user Addedd!');
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show')->with('users', $user);
+        return UserResource::make($user);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(UserRequest $request, User $user)
     {
-        $user = User::find($id);
-        return view('users.edit', compact('user'))->with('users', $user);
-
+        $data = $request->validated();
+        $user->update($data);
+        return UserResource::make($user);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $user = User::find($id);
-        $input = $request->all();
-        $user->update($input);
-        return redirect('users')->with('flash_message', 'user Updated!');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        user::destroy($id);
-        return redirect('users')->with('flash_message', 'user deleted!');
+        User::destroy($id);
+        return response()->json([], 200);
     }
 }

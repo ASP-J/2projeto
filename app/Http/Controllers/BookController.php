@@ -3,93 +3,46 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\BookRequest;
+use App\Http\Resources\BookResource;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Book;
 
 class BookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $books = Book::all();
-        return view ('books.index')->with('books', $books);
+        return BookResource::collection($books);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(BookRequest $request)
     {
-        return view('books.create');
+        $data = $request->validated();
+        $book = Book::create($data);
+        return BookResource::make($book);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $input = $request->all();
-        Book::create($input);
-        return redirect('books')->with('flash_message', 'Book Addedd!');
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $book = Book::find($id);
-        return view('books.show')->with('books', $book);
+        return BookResource::make($book);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(BookRequest $request, $id)
     {
         $book = Book::find($id);
-        return view('books.edit')->with('books', $book);
+        $date = $request->validated();
+        $book->update($date);
+        return BookResource::make($book);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $book = Book::find($id);
-        $input = $request->all();
-        $book->update($input);
-        return redirect('books')->with('flash_message', 'book Updated!');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Book::destroy($id);
-        return redirect('books')->with('flash_message', 'Book deleted!');
+        return response()->json([], 200);
     }
 }

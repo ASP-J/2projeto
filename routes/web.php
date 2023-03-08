@@ -14,7 +14,7 @@ use App\Http\Controllers\LoanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,3 +24,4 @@ Route::resource("/books", BookController::class);
 Route::resource("/users", UserController::class);
 
 Route::resource("/loans", LoanController::class);
+*/
