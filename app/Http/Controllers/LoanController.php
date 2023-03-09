@@ -32,7 +32,7 @@ class LoanController extends Controller
         return LoanResource::make($loan);
     }
 
-    public function update(Request $request, Loan $loan)
+    public function update(LoanRequest $request, Loan $loan)
     {
         $data = $request->validated();
         $loan->update($data);

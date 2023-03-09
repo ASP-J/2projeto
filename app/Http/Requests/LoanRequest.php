@@ -24,8 +24,8 @@ class LoanRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'=>'required',
-            'book_id'=>'required'
+            'user_id'=>'required|exists:users,id',
+            'book_id'=>'required|exists:books,id'
         ];
     }
 }
