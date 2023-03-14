@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function loans()
     {
-        return $this->belongsToMany(Leon::class, 'id', 'user_id');
+        return $this->belongsToMany(Loan::class, 'id', 'user_id');
     }
     
 

@@ -15,7 +15,7 @@ class Book extends Model
 
     public function loans()
     {
-        return $this->belongsToMany(Leon::class, 'id', 'book_id');
+        return $this->belongsToMany(Loan::class, 'id', 'book_id');
     }
 }
 
